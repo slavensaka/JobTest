@@ -1,0 +1,21 @@
+{
+  "name": "Slaven Sakačić",
+  "description": "Zadatak",
+  "version": "1.0",
+  "keywords": [
+    "arnetdigital, posao"
+  ],
+  "require": {
+    "": ""
+  },
+  "maintainers": [
+    {
+      "name": "Slaven Sakačić",
+      "email": "slavensakacic@gmail.com",
+      "web": "slaven-sakacic.from.hr"
+    }
+  ],
+  "dependencies": {
+    "": ""
+  }
+}

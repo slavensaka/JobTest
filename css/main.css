@@ -1,0 +1,70 @@
+
+/* ==========================================================================
+   =Header
+   ========================================================================== */
+header.logo h1{
+	float:none;
+	display: block;
+    margin: 1px 407px;
+    margin-top: 38px;
+ 	margin-bottom: 65px;
+ 	overflow: hidden; 
+}
+
+/* ==========================================================================
+   =nav
+   ========================================================================== */
+nav.navigacija ul li {
+	display:inline;
+	margin-right: 8px;
+}
+
+/* ==========================================================================
+   =miscellaneous
+   ==============0============================================================ */
+ div.container_12 nav.navigacija li a{
+	text-decoration: none;
+	margin-left: 7px;
+}
+
+ div.container_12 nav.navigacija li a:hover {
+	color: #1880e1;	
+}
+
+div.container_12 nav.navigacija li a.selected{
+	color: #1880e1;
+	text-decoration: underline;
+}
+
+div.nav nav.navigacija  ul {
+	border-bottom: 1px solid #cfcfcf;
+ 	padding-bottom: 17px;
+ 	margin-bottom: 50px;
+}
+/* ==========================================================================
+   =footer
+   ========================================================================== */
+footer ul li {
+	display:inline;	
+}
+
+footer ul li.mak {
+	margin-left: -1px;
+	margin-right: 6px;
+}
+
+footer ul li.maki {
+	padding-left: 10px;
+	padding-right: 5px;
+    border-left: 1px solid #1880e1;
+    margin-left: 6px;
+}
+
+footer ul li.maki, li.mak, a:link, a:visited,a:hover,a:active {
+	text-decoration: none;
+    color:#1880e1;
+}
+li span.connect {display: block;
+    float:right;
+    color:#1880e1;
+}
