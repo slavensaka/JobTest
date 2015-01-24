@@ -1,0 +1,27 @@
+[
+    {
+        "name": "frameworks/jquery",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/frameworks/jquery.git",
+            "reference": "17e4391441a802001e873cfc02b200cb39529d3b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/frameworks/jquery/zipball/17e4391441a802001e873cfc02b200cb39529d3b",
+            "reference": "17e4391441a802001e873cfc02b200cb39529d3b",
+            "shasum": ""
+        },
+        "time": "2014-06-04 15:10:13",
+        "type": "library",
+        "installation-source": "source",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "description": "jQuery JavaScript Library",
+        "homepage": "http://jquery.com"
+    }
+]

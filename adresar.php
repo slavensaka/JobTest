@@ -12,7 +12,9 @@
 </head>
 <body>
 <?php
-require ('connect.php');
+require 'connect.php';
+require 'vendor/autoload.php';
+
 ?>
 <div class="container_12">
 

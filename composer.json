@@ -6,7 +6,7 @@
     "arnetdigital, posao"
   ],
   "require": {
-    "": ""
+    "frameworks/jquery": "dev-master"
   },
   "maintainers": [
     {
