@@ -17,5 +17,8 @@
   ],
   "dependencies": {
     "": ""
-  }
+  },
+   "autoload": {
+         "psr-0": {"App": "src/"}
+    }
 }

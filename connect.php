@@ -1,8 +1,7 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = "";
-$database = "arnet_digi";
-$connection = mysql_connect($host,$user,$pass) or die (mysql_error());
-mysql_select_db($database) or die (mysql_error());
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
+define('DB_DATABASE', 'arnet_digi');
+$db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
 ?>

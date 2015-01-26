@@ -68,3 +68,25 @@ li span.connect {display: block;
     float:right;
     color:#1880e1;
 }
+
+/* ==========================================================================
+   =Brojevi
+   ========================================================================== */
+   .brojevi {
+   	-moz-border-radius: 3px 3px 3px 3px;
+    
+    
+    
+    font-family: helvetica,arial,sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    list-style-type:none; 
+    
+cursor:pointer;
+   }
+
+#paging_button {
+  
+}
+
+
