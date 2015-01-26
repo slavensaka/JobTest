@@ -16,14 +16,14 @@
  <!-- Header i nav dijeovi samo za strukturu -->
 <div class="container_12">
 <header id="logo" class="logo">
-		<h1><a href="#">Arnet Digital</a></h1>
+		<h1><a href="javascript:void(0);">Arnet Digital</a></h1>
 </header><!-- /header -->
 <br class="clear" />
 <div class="nav">
 	<nav class="navigacija">
 		<ul>
-		    <li><a id="zaposlenik" href="#">Zaposlenici</a></li>
-		    <li><a id="dodaj" href="#">Dodaj zaposlenika</a></li>   
+		    <li><a id="zaposlenik" href="javascript:void(0);">Zaposlenici</a></li>
+		    <li><a id="dodaj" href="javascript:void(0);">Dodaj zaposlenika</a></li>   
 		</ul>
 	</nav>	
 </div><!-- /nav -->
@@ -83,6 +83,8 @@ while ($row2 = $result->fetch_row())
 {
    $total=$row2[0];
 }
+
+if($total=0) { }
 $pages = ceil($total/5);
 
 
@@ -162,10 +164,11 @@ $pages = ceil($total/5);
 		Ajax poziv   
    	========================================================================== */
 
-$("#content").on("click", "a", function() {
-    $('.brisi').on("click", function() {
-        //console.log($(this).attr('id'));
-
+$("#content").on("click", "a", function(e) {
+	e.preventDefault();
+     $('.brisi').on("click", function(e) {
+        // console.log($(this).attr('id'));
+         e.preventDefault();
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4) {
@@ -173,17 +176,17 @@ $("#content").on("click", "a", function() {
                 ajaxdiv.innerHTML = xhr.responseText;
             }
         }
-        var id = $('.brisi').attr('id');
+        // var id = $('.brisi').attr('id');
+        var id = $(this).attr('id');
         // console.log(id);
         // var query  ="?id="+ id;
         xhr.open("POST", "ajaxdio.php" + "?id=" + id, true);
         xhr.send(null);
 
-
-
         $("#content").load("paginacija.php?page=" + 1);
-
-    });
+        
+     });
+    
 });
 
 $("#send").click(function() {
@@ -198,7 +201,7 @@ $("#send").click(function() {
 		// telefon[j] = $("#"+j).val();
 		// telefon[i] = "123"+i;
     telefon.push($("#"+j).val());
-
+    // console.log(telefon);
 	// telefon.push(i);
 		
 	}
@@ -217,12 +220,7 @@ $("#send").click(function() {
                 adresa: $("#adresa").val(),
                 grad: $("#grad").val(),
                 email: $("#email").val(),
-
-
-
-
-
-		       "telefon":JSON.stringify(telefon)
+				"telefon":JSON.stringify(telefon)
 		   },
 
 		 // data: {"telefon":JSON.stringify(telefon)},
@@ -263,7 +261,7 @@ $("#send").click(function() {
 <footer>
 	<ul>
 		<br class="clear" />
-		<li class="foot"><a href="#">Made by: Slaven Sakačić</a></li>
+		<li class="foot"><a href="javascript:void(0);">Made by: Slaven Sakačić</a></li>
 	</ul>	
 </footer><!-- /footer -->
 </div><!-- /container -->

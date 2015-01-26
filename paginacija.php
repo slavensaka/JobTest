@@ -20,7 +20,7 @@ while($row = $result->fetch_assoc()){
     echo "id:{$row['id']} <br> ";
     
     echo '<span class="action">';
-    echo '<a href="#" id="'. $row["id"].'" class="brisi" title="Briši">Briši X</a></span><br>' ;
+    echo '<a href="javascript:void(0);" id="'. $row["id"].'" class="brisi" title="Briši">Briši X</a></span><br>' ;
     
     
      echo  "--------------------------------<br>";       
