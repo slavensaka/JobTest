@@ -10,7 +10,6 @@ if(!$result = $db->query($sql_content1)){
 }
 $cols = $result->num_rows;
 
-
 $j=0;
 while($row = $result->fetch_assoc()){
     echo "<p>Ime :{$row['ime']}  <br> ".
@@ -18,12 +17,8 @@ while($row = $result->fetch_assoc()){
          "Adresa: {$row['adresa']} <br> ".
          "Email : {$row['email']} <br> ";
     echo "id:{$row['id']} <br> ";
-    
     echo '<span class="action">';
     echo '<a href="javascript:void(0);" id="'. $row["id"].'" class="brisi" title="Briši">Briši X</a></span><br>' ;
-    
-    
-     echo  "--------------------------------<br>";       
- 			      
+    echo  "--------------------------------<br>";        			      
 }
 $j++;

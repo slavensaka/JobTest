@@ -32,44 +32,34 @@
 <div class="main" id="main">
 </div><!-- /divmain -->
 	
-
 	<script type="text/javascript">
 	/* ==========================================================================
     Paginacija dio. Osnovno izvedeno.
    ========================================================================== */
-
-   		
 		$(document).ready(function(){	
 			$("#zaposlenik").click(function(){			
 				$("#content").load("paginacija.php?page=" + 1);		
 				$("li.brojevi").show();	
 			});
-
-
-		    $("li.brojevi").hide();
-			$("#paging_button li").click(function(){
-				
+			$("li.brojevi").hide();
+			$("#paging_button li").click(function(){	
 				$(this).css({'border-color':'blue',
 						     'background-color' : 'red',
 						     'color' : 'red',
 						     'background':'#fff'
-
 						 });
-				
 				$("#content").load("paginacija.php?page=" + this.id);	
 			});
-
-
-				$("#registracija").hide();
-				$('#dodaj').click(function(){
+			$("#registracija").hide();
+			$('#dodaj').click(function(){
 					if($("#registracija").is(":visible")){
 						$("#registracija").hide();
 					} else {
 						$("#registracija").show();
 					}
-					return false;
+				return false;
 
-				});
+			});
 			
 		});
 	</script>
@@ -84,9 +74,11 @@ while ($row2 = $result->fetch_row())
    $total=$row2[0];
 }
 
-if($total=0) { }
-$pages = ceil($total/5);
-
+if(isset($total)) {
+	$pages = ceil($total/5);
+} else {
+	$pages = ceil(1/5);
+}
 
 
 
@@ -130,14 +122,7 @@ $pages = ceil($total/5);
 	 <div id="novi_telefon">+</div>
     <div class="button">
     <input type="button" name="send" id="send" value="Send"/>
-
-
-    </div>
-
-    <!-- <div class="input">
-    <input type="hidden" name="honeypot" id="honeypot" value="http://"/>
-    <input type="hidden" name="humancheck" id="humancheck" class="clear" value=""/>
-    </div> -->
+	</div>
 </form>
 
 </div>
@@ -149,67 +134,54 @@ $pages = ceil($total/5);
 		/* ==========================================================================
 		   Prikaz paginacija brojeva. 
 		   ========================================================================== */
-		for($i=1; $i<=$pages; $i++) {
-			echo '<h2><li class="brojevi" id="'.$i.'">'.$i.'</li></h2>';
-		}
+			for($i=1; $i<=$pages; $i++) {
+				echo '<h2><li class="brojevi" id="'.$i.'">'.$i.'</li></h2>';
+			}
 		?>
 		</ul></td></tr></table>
 </div>
-
-
-
 
 <script type="text/javascript">
 	/* ==========================================================================
 		Ajax poziv   
    	========================================================================== */
 
-$("#content").on("click", "a", function(e) {
-	e.preventDefault();
-     $('.brisi').on("click", function(e) {
-        // console.log($(this).attr('id'));
-         e.preventDefault();
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function() {
+	$("#content").on("click", "a", function() {
+     	$('.brisi').on("click", function(e) {
+        	console.log($(this).attr('id'));
+         	e.preventDefault();
+        	var xhr = new XMLHttpRequest();
+        	xhr.onreadystatechange = function() {
             if (xhr.readyState == 4) {
                 var ajaxdiv = document.getElementById('ajax');
                 ajaxdiv.innerHTML = xhr.responseText;
             }
         }
-        // var id = $('.brisi').attr('id');
+        
         var id = $(this).attr('id');
         // console.log(id);
         // var query  ="?id="+ id;
         xhr.open("POST", "ajaxdio.php" + "?id=" + id, true);
         xhr.send(null);
-
-        $("#content").load("paginacija.php?page=" + 1);
+		$("#content").load("paginacija.php?page=" + 1);
         
      });
     
 });
 
-$("#send").click(function() {
-	// var ime = $("#ime").val();
-	// var prezime = $("#prezime").val();
-	// var adresa = $("#adresa").val();
-	// var grad = $("#grad").val();
-	// var email = $("#email").val();
-	var telefon = [];
-	for ( j = 0; j < i; j++ ){
-
-		// telefon[j] = $("#"+j).val();
-		// telefon[i] = "123"+i;
-    telefon.push($("#"+j).val());
-    // console.log(telefon);
-	// telefon.push(i);
-		
+	$("#send").click(function() {
+	
+		var telefon = [];
+		for ( j = 0; j < i; j++ ){
+    	telefon.push($("#"+j).val());
+    	// console.log(telefon);
+		// telefon.push(i);		
 	}
-	// telefon.push($(".telefon").val());
-	// var telefon = $("#telefon");
-	var dataString = 'ime='+ ime + '&prezime='+ prezime + 
-				     '&adresa='+ adresa + '&grad='+ grad+ 
-				     '&email='+ email+ '&telefon='+ telefon;
+		// telefon.push($(".telefon").val());
+		// var telefon = $("#telefon");
+		var dataString = 'ime='+ ime + '&prezime='+ prezime + 
+					     '&adresa='+ adresa + '&grad='+ grad+ 
+					     '&email='+ email+ '&telefon='+ telefon;
 
 	$.ajax({
 		type:"POST",
@@ -224,14 +196,12 @@ $("#send").click(function() {
 		   },
 
 		 // data: {"telefon":JSON.stringify(telefon)},
-	 // data: dataString,
+		 // data: dataString,
 		cache: false,
 		success: function(result) {
 			 alert(result);
 		}
 	});
-
-
 	return false;
 });
 			
@@ -241,21 +211,13 @@ $("#send").click(function() {
   var i = 1;
    $('#novi_telefon').click(function(e) {
    		// <input name="telefon" type="text" class="required" id="telefon" size="30"/>
-
-       var $e = $("<input>", 
+		var $e = $("<input>", 
        	{id: i ,type:"text", name: 'telefon', class: "telefon",size:"30"});
         $('#novi_telefon').before($e);
-   i++
-      
-      return i;
-
-
+   		i++
+      	return i;
 	});
 	</script>
-
-
-
-
 
 <!-- Footer dio osnovni -->
 <footer>
