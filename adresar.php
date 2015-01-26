@@ -38,11 +38,15 @@
     Paginacija dio. Osnovno izvedeno.
    ========================================================================== */
 
+   		
 		$(document).ready(function(){	
 			$("#zaposlenik").click(function(){			
-				$("#content").load("paginacija.php?page=" + 1);			
+				$("#content").load("paginacija.php?page=" + 1);		
+				$("li.brojevi").show();	
 			});
 
+
+		    $("li.brojevi").hide();
 			$("#paging_button li").click(function(){
 				
 				$(this).css({'border-color':'blue',
@@ -118,9 +122,10 @@ $pages = ceil($total/5);
 
     <div class="input">
     	<label>Telefon</label>
-    	<input name="telefon" type="text" class="required" id="telefon" size="30"/>
+    	<input name="telefon" type="text" class="telefon" id="0" size="30"/>
+		
     </div>
-
+	 <div id="novi_telefon">+</div>
     <div class="button">
     <input type="button" name="send" id="send" value="Send"/>
 
@@ -181,29 +186,73 @@ $("#content").on("click", "a", function() {
     });
 });
 
-
 $("#send").click(function() {
-	var ime = $("#ime").val();
-	var prezime = $("#prezime").val();
-	var adresa = $("#adresa").val();
-	var grad = $("#grad").val();
-	var email = $("#email").val();
-	var dataString = 'ime='+ ime + '&prezime='+ prezime + '&adresa='+ adresa + '&grad='+ grad+ '&email='+ email;
+	// var ime = $("#ime").val();
+	// var prezime = $("#prezime").val();
+	// var adresa = $("#adresa").val();
+	// var grad = $("#grad").val();
+	// var email = $("#email").val();
+	var telefon = [];
+	for ( j = 0; j < i; j++ ){
+
+		// telefon[j] = $("#"+j).val();
+		// telefon[i] = "123"+i;
+    telefon.push($("#"+j).val());
+
+	// telefon.push(i);
+		
+	}
+	// telefon.push($(".telefon").val());
+	// var telefon = $("#telefon");
+	var dataString = 'ime='+ ime + '&prezime='+ prezime + 
+				     '&adresa='+ adresa + '&grad='+ grad+ 
+				     '&email='+ email+ '&telefon='+ telefon;
 
 	$.ajax({
 		type:"POST",
 		url:"ajaxsubmit.php",
-		data: dataString,
+		data: {
+				ime: $("#ime").val(),
+                prezime: $("#prezime").val(),
+                adresa: $("#adresa").val(),
+                grad: $("#grad").val(),
+                email: $("#email").val(),
+
+
+
+
+
+		       "telefon":JSON.stringify(telefon)
+		   },
+
+		 // data: {"telefon":JSON.stringify(telefon)},
+	 // data: dataString,
 		cache: false,
 		success: function(result) {
-			alert(result);
+			 alert(result);
 		}
 	});
+
 
 	return false;
 });
 			
+/* ==========================================================================
+   Napravit novi unos telefona u formi
+   ========================================================================== */
+  var i = 1;
+   $('#novi_telefon').click(function(e) {
+   		// <input name="telefon" type="text" class="required" id="telefon" size="30"/>
 
+       var $e = $("<input>", 
+       	{id: i ,type:"text", name: 'telefon', class: "telefon",size:"30"});
+        $('#novi_telefon').before($e);
+   i++
+      
+      return i;
+
+
+	});
 	</script>
 
 
