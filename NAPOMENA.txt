@@ -1,0 +1,11 @@
+Klikom na "Zaposlenici" ispiše se popis svih zaposlenika.
+
+"Dodaj zaposlenika" prikazuje formu u kojoj se unose informacije o novom zaposleniku sa beskonačnim mogućim brojem unosa telefonskih brojeva(klikom na +) za danog zaposlenika.
+
+U front endu nisam ispisao telefone za pojedinačnog zaposlenika, jer u napomeni zadataka stoji da se neće ocjenjivati izgled. To je jednostavno dodat. U kodu se vidi (mysql,php) da se telefoni unose u bazu korektno. 
+
+
+BUGOVI*
+1. Paginacija ne regulira brojeve kada ima manje zaposlenika, statično. Front end problem.
+2. Potrebno dva puta kliknit na brisat da se pokrene događaj(event) brisanja. Back end problem. 
+Moguće riješenje: http://stackoverflow.com/questions/9984184/jquery-click-event-requires-two-clicks-to-fire
