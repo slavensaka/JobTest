@@ -1,3 +1,6 @@
+
+Live Site: [slaven-sakacic.from.hr/adresar.php](http://slaven-sakacic.from.hr/arnet_digital/adresar.php)
+<br/><br/>
 Zadatak:
 Kreirati MySQL tablicu imena "zaposlenik" (relacija one-to-many) koja sadrži sljedeća polja:
 [id, ime, prezime, adresa, grad, email]
